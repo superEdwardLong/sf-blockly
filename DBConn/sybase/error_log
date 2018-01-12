@@ -1,0 +1,1 @@
+[12-Dec-2016 14:32:20 America/Chicago] PHP Fatal error:  Call to undefined function sybase_min_server_severity() in /home4/bizopryi/public_html/SFUER/Help/lib/sybase/ez_sql_sybase.php on line 3

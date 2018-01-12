@@ -1,0 +1,284 @@
+/**
+comment function
+**/
+@mixin radius($val) {
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -o-border-radius: $val;
+  -ms-border-radius: $val;
+  border-radius: $val;
+}
+
+@mixin displayFlex {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@function alignValue($val,$isNew) {
+  @if ($isNew) {
+    @if ($val == "start") {
+      @return flex-start;
+    } @else if ($val == "end") {
+      @return flex-end;
+    } @else if ($val == "justify") {
+      @return space-between;
+    } @else {
+      @return $val;
+    }
+  } @else {
+    @return $val;
+  }
+}
+
+@mixin flexAlign($direction,$val) {
+  @if ($direction == "v") {
+    /* Y
+            @box-align: start      | end      | center | baseline | stretch;
+            @align-item:flex-start | flex-end | center | baseline | stretch;
+        */
+
+    -webkit-box-align: alignValue($val, false);
+    -moz-box-align: alignValue($val, false);
+    -ms-flex-align: alignValue($val, false);
+    -webkit-align-items: alignValue($val, true);
+    align-items: alignValue($val, true);
+  } @else {
+    /*
+            X
+            @pack:   start      | end      | center | justify;
+            @content:flex-start | flex-end | center | space-between | space-around
+        */
+    -webkit-box-pack: alignValue($val, false);
+    -moz-box-pack: alignValue($val, false);
+    -ms-flex-pack: alignValue($val, false);
+    -webkit-justify-content: alignValue($val, true);
+    justify-content: alignValue($val, true);
+  }
+
+}
+
+@mixin backgroundImageFixed($imageUrl) {
+  background-image: url($imageUrl);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/**
+comment function
+**/
+@mixin radius($val) {
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -o-border-radius: $val;
+  -ms-border-radius: $val;
+  border-radius: $val;
+}
+
+@mixin displayFlex {
+  display: -webkit-box; /* OLD - iOS 6-, Safari 3.1-6 */
+  display: -moz-box; /* OLD - Firefox 19- (buggy but mostly works) */
+  display: -ms-flexbox; /* TWEENER - IE 10 */
+  display: -webkit-flex; /* NEW - Chrome */
+  display: flex; /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+@function alignValue($val,$isNew) {
+  @if ($isNew) {
+    @if ($val == "start") {
+      @return flex-start;
+    } @else if ($val == "end") {
+      @return flex-end;
+    } @else if ($val == "justify") {
+      @return space-between;
+    } @else {
+      @return $val;
+    }
+  } @else {
+    @return $val;
+  }
+}
+
+@mixin flexAlign($direction,$val) {
+  @if ($direction == "v") {
+    /* Y
+            @box-align: start      | end      | center | baseline | stretch;
+            @align-item:flex-start | flex-end | center | baseline | stretch;
+        */
+
+    -webkit-box-align: alignValue($val, false);
+    -moz-box-align: alignValue($val, false);
+    -ms-flex-align: alignValue($val, false);
+    -webkit-align-items: alignValue($val, true);
+    align-items: alignValue($val, true);
+  } @else {
+    /*
+            X
+            @pack:   start      | end      | center | justify;
+            @content:flex-start | flex-end | center | space-between | space-around
+        */
+    -webkit-box-pack: alignValue($val, false);
+    -moz-box-pack: alignValue($val, false);
+    -ms-flex-pack: alignValue($val, false);
+    -webkit-justify-content: alignValue($val, true);
+    justify-content: alignValue($val, true);
+  }
+
+}
+
+@mixin backgroundImageFixed($imageUrl) {
+  background-image: url($imageUrl);
+  background-size: contain;
+  background-position: left center;
+  background-repeat: no-repeat;
+}
+
+@function Px2Rem($px) {
+  @return ($px/16) + rem;
+}
+
+ul,li{
+    padding: 0;margin: 0;list-style: none;
+}
+a{text-decoration: none; color:inherit;}
+html,body{
+    margin: 0 auto;
+    font-family: arial "微软雅黑";
+    background-color: #f7f7f7;
+    overflow: hidden;
+    font-size: 16px;
+    overflow: hidden;
+}
+body{ 
+    position:relative; 
+    height: 100%; 
+    min-height: 600px;
+    min-width: 840px;
+}
+.h-flex-justify{
+    @include displayFlex();
+    @include flexAlign('h',justify);
+}
+.col-1{
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+    overflow: hidden;
+ }
+ .col-2{
+    -webkit-flex-grow: 2;
+    flex-grow: 2;
+    overflow: hidden;
+ }
+ .col-3{
+    -webkit-flex-grow: 3;
+    flex-grow: 3;
+    overflow: hidden;
+ }
+ .col-4{
+    -webkit-flex-grow: 4;
+    flex-grow: 4;
+    overflow: hidden;
+ }
+ .col-5{
+    -webkit-flex-grow: 5;
+    flex-grow: 5;
+    overflow: hidden;
+ }
+ .col-6{
+    -webkit-flex-grow: 6;
+    flex-grow: 6;
+    overflow: hidden;
+ }
+ .col-7{
+    -webkit-flex-grow: 7;
+    flex-grow: 7;
+    overflow: hidden;
+ }
+ .col-8{
+    -webkit-flex-grow: 8;
+    flex-grow: 8;
+    overflow: hidden;
+ }
+ .col-9{
+    -webkit-flex-grow: 9;
+    flex-grow: 9;
+    overflow: hidden;
+ }
+.page{
+    width: 100%; 
+    position: absolute;
+    top: 0;left: 0;bottom: 0;
+    overflow: hidden; 
+}
+.content{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+}
+.bar{
+    position: absolute; left: 0; width: 100%; overflow: hidden;
+    @include displayFlex();
+    @include flexAlign('v',center);
+    @include flexAlign('h',justify);
+}
+.navbar{
+    top:0;
+    height: 40px;
+    background-color: #DD4B39;
+    color: #fff;
+    .bar-item{
+        @include displayFlex();
+        @include flexAlign('v',center);
+        padding: 0 4px; overflow: hidden;
+    }
+}
+.navbar ~ .content{
+    top: 40px;
+}
+
+#preview,
+#codes{
+    max-width: 25%; 
+    position:relative;
+}
+
+.stage{
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom:34px;
+    @include backgroundImageFixed('../images/device-sprite.png');
+    background-size: 300%;
+}
+.stage-footer{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top:solid 1px #DDDDDD;
+    button{
+        @include radius(4px);
+        background-color: #3366CC; 
+        color: white;
+        border: none;
+        line-height: 26px;
+        margin: 3px;
+    }
+    a{
+        line-height: 26px;
+        margin: 3px;
+    }
+}
+#myform{
+    position: absolute;
+    top: -10000px;
+}
+
+
